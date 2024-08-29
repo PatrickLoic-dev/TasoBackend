@@ -22,8 +22,8 @@ const createProduct = async (req, res, next) => {
     const product = new Product(req.body);
 
     try {
-        const saveProduct = await Product.save();
-        res.status(200).send(saveProduct);
+        await product.save();
+        res.status(200).send(product);
     } catch (error) {
         res.status(400).send(error);
     }
