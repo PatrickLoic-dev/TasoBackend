@@ -19,7 +19,13 @@ const getProducts = async (req, res, next) => {
 
 //Creates a new product and sends it as a response.
 const createProduct = async (req, res, next) => {
-    const product = new Product(req.body);
+    const { category, name } = req.body;
+    const productCode = `${category[0].toUpperCase()}${name.slice(0, 3).toUpperCase()}`;
+
+    const product = new Product({
+        ...req.body,
+        productCode,
+    });
 
     try {
         await product.save();
