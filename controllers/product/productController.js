@@ -7,7 +7,7 @@ const authentification = require('../../middlewares/authentification');
 
 const getProducts = async (req, res, next) => {
     try {
-        const products = await Product.find().populate('category');
+        const products = await Product.find({}).populate('category'); // F
         if (!products) {
             return res.status(404).send("No products found");
         }
