@@ -1,7 +1,6 @@
 const express = require('express');
-const supplierController = require('../controllers/supplierController');
 const authentification = require('../middlewares/authentification');
-const { getSuppliers, getSupplierByID, createSupplier, updateSupplier, deleteSupplier } = require('../controllers/supplier/supllierController');
+const { getSuppliers, getSupplierByID, createSupplier, updateSupplier, deleteSupplier } = require('../controllers/supplier/supplierController');
 
 
 const router = express.Router();
