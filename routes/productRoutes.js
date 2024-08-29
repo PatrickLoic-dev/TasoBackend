@@ -6,7 +6,7 @@ const { getProducts, createProduct, getProductByID, updateStock, addStock, remov
 const router = express.Router();
 
 /* Ensembles des routes lié aux products */
-router.get('/products', getProducts)
+router.get('/products', authentification, getProducts)
 
 .post('/products', authentification, createProduct)
 
