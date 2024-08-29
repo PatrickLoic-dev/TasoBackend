@@ -28,7 +28,14 @@ const getCategoryById  =  async (req, res) => {
 
 const createCategory = async (req, res) => {
     try {
-        const category = new Category(req.body);
+        const { name } = req.body;
+        const categoryCode = `${name[0].toUpperCase()}${name.slice(0, 3).toUpperCase()}`;
+
+        const category = new Category({
+            ...req.body,
+            categoryCode,
+        });
+
         await category.save();
         res.status(201).send(category);
     } catch (error) {
