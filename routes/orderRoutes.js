@@ -6,21 +6,21 @@ const { getOrders, createOrder, deleteOrder, updateOrder } = require('../control
 const router = express.Router();
 
 // GET all orders
-router.get('/', authentification, getOrders)
+router.get('/order', authentification, getOrders)
 
 // GET a specific order
-.get('/:id', authentification, getOrder, (req, res) => {
+.get('/order/:id', authentification, getOrder, (req, res) => {
     res.json(res.order);
 })
 
 // CREATE a new order
-.post('/', authentification, createOrder)
+.post('/order', authentification, createOrder)
 
 // UPDATE an existing order
-.patch('/:id', authentification, updateOrder)
+.patch('/order/:id', authentification, updateOrder)
 
 // DELETE an order
-.delete('/:id', authentification, getOrder, deleteOrder)
+.delete('/order/:id', authentification, getOrder, deleteOrder)
 
 async function getOrder(req, res, next) {
     let order;
